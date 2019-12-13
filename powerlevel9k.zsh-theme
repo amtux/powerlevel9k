@@ -1691,10 +1691,9 @@ prompt_dir_writable() {
 ################################################################
 # Kubernetes Current Context/Namespace
 prompt_kubecontext() {
-  local kubectl_version="$(kubectl version --client 2>/dev/null)"
+  local k8s_ctx="$(kubectl config current-context)"
 
-  if [[ -n "$kubectl_version" ]]; then
-    local k8s_ctx="$(kubectl config current-context)"
+  if [[ -n "$k8s_ctx" ]]; then
     "$1_prompt_segment" "$0" "$2" "magenta" "white" "${k8s_ctx##*_}" "KUBERNETES_ICON"
   fi
 }
