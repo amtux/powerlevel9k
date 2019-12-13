@@ -1694,7 +1694,7 @@ prompt_kubecontext() {
   local k8s_ctx="$(kubectl config current-context)"
 
   if [[ -n "$k8s_ctx" ]]; then
-    "$1_prompt_segment" "$0" "$2" "magenta" "white" "${k8s_ctx##*_}" "KUBERNETES_ICON"
+    "$1_prompt_segment" "$0" "$2" "magenta" "black" "${k8s_ctx##*_}" "KUBERNETES_ICON"
   fi
 }
 
